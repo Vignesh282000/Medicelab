@@ -1,0 +1,903 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Responsive Bootstrap 4 Admin &amp; Dashboard Template">
+    <meta name="author" content="Bootlab">
+
+    <title>Analytics Dashboard | Worksbot Dashboard Template</title>
+
+    <link rel="canonical" href="https://appstack.bootlab.io/dashboard-analytics.html" />
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Choose your prefered color scheme -->
+    <link href="{% static 'assets/css/light.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+    <!-- <link href="css/dark.css" rel="stylesheet"> -->
+
+
+</head>
+<!--
+  HOW TO USE: 
+  data-theme: default (default), dark, light
+  data-layout: fluid (default), boxed
+  data-sidebar-position: left (default), right
+  data-sidebar-behavior: sticky (default), fixed, compact
+-->
+
+<body data-theme="colored" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="sticky">
+    <section id="dashboard">
+        <div class="wrapper">
+            <nav id="sidebar" class="sidebar">
+                <div class="sidebar-content js-simplebar">
+                    <label style="font-size: xx-large; color: white;margin-left: 5%;">MediceLab</label>
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-header">
+                            Pages
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'admin_dash' %}" class="sidebar-link">
+                                <i class="align-middle" data-feather="sliders"></i> <span
+                                    class="align-middle">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item active">
+                            <a href="#pages" data-toggle="collapse" class="sidebar-link collapsed">
+                                <i class="align-middle" data-feather="layout"></i> <span
+                                    class="align-middle">Front-Office</span>
+                            </a>
+                            <ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                                <li class="sidebar-item"><a class="sidebar-link"
+                                        href="{% url 'admin_appoint' %}">Appointments
+                                        Details</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link"
+                                        href="{% url 'admin_visitor_page' %}">Visitor List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'admin_OPD' %}" class="sidebar-link collapsed">
+                                <i class="align-middle icofont-stethoscope"></i><span>OPD-Out Patient</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'admin_IPD' %}" class="sidebar-link collapsed">
+                                <i class="align-middle icofont-bed"></i> <span class="align-middle">IPD-In
+                                    Patient</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'admin_pharmacy' %}" class="sidebar-link collapsed">
+                                <i class="align-middle icofont-capsule"></i> <span class="align-middle">Pharmacy</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'admin_pathology' %}" class="sidebar-link collapsed">
+                                <i class="align-middle icofont-microscope"></i> <span
+                                    class="align-middle">Pathology</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'admin_radiology' %}" class="sidebar-link collapsed">
+                                <i class="align-middle icofont-xray"></i> <span class="align-middle">Radiology</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'admin_ot' %}" class="sidebar-link collapsed">
+                                <i class="align-middle icofont-cut"></i> <span class="align-middle">Operation
+                                    Theatre</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'admin_bloodbank' %}" class="sidebar-link collapsed">
+                                <i class="align-middle icofont-blood"></i> <span class="align-middle">Blood
+                                    Bank</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'admin_livecons' %}" class="sidebar-link collapsed">
+                                <i class="align-middle icofont-laptop"></i> <span class="align-middle">Live
+                                    Consulation</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'admin_ambulance' %}" class="sidebar-link collapsed">
+                                <i class="align-middle icofont-ambulance"></i> <span
+                                    class="align-middle">Ambulance</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#page" data-toggle="collapse" class="sidebar-link collapsed">
+                                <i class="align-middle icofont-birthday-cake"></i> <span class="align-middle">Birth &
+                                    Death
+                                    Records</span>
+                            </a>
+                            <ul id="page" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                                <li class="sidebar-item"><a class="sidebar-link " href="{% url 'admin_birth' %}">Birth
+                                        Records</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link " href="{% url 'admin_death' %}">Death
+                                        Records</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#pag" data-toggle="collapse" class="sidebar-link collapsed">
+                                <i class="align-middle" data-feather="layout"></i> <span class="align-middle">Human
+                                    Resource</span>
+                            </a>
+                            <ul id="pag" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                                <li class="sidebar-item"><a class="sidebar-link"
+                                        href="{% url 'admin_staffdetails' %}">Staff Details</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="{% url 'admin_bedstatus' %}">Bed
+                                        Status</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="{% url 'admin_bedlist' %}">Bed
+                                        List</a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'admin_message' %}" class="sidebar-link collapsed">
+                                <i class="align-middle icofont-ambulance"></i> <span
+                                    class="align-middle">Messaging</span>
+                            </a>
+                        </li>
+                </div>
+            </nav>
+            <div class="main">
+                <nav class="navbar navbar-expand navbar-light navbar-bg">
+                    <a class="sidebar-toggle">
+                        <i class="hamburger align-self-center"></i>
+                    </a>
+
+                    <form class="d-none d-sm-inline-block">
+                        <div class="input-group input-group-navbar">
+                            <input type="text" class="form-control" placeholder="Search projects…" aria-label="Search">
+                            <div class="input-group-append">
+                                <button class="btn" type="button">
+                                    <i class="align-middle" data-feather="search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="navbar-collapse collapse">
+                        <ul class="navbar-nav navbar-align">
+                            <li class="nav-item dropdown">
+                                <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown"
+                                    data-toggle="dropdown">
+                                    <div class="position-relative">
+                                        <i class="align-middle" data-feather="message-circle"></i>
+                                        <span class="indicator">4</span>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0"
+                                    aria-labelledby="messagesDropdown">
+                                    <div class="dropdown-menu-header">
+                                        <div class="position-relative">
+                                            4 New Messages
+                                        </div>
+                                    </div>
+                                    <div class="list-group">
+                                        <a href="#" class="list-group-item">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-2">
+                                                    <img src="{% static 'assets/img/Theme/avatars/avatar-5.jpg' %}"
+                                                        class="avatar img-fluid rounded-circle" alt="Ashley Briggs">
+                                                </div>
+                                                <div class="col-10 pl-2">
+                                                    <div class="text-dark">Ashley Briggs</div>
+                                                    <div class="text-muted small mt-1">Nam pretium turpis et arcu. Duis
+                                                        arcu
+                                                        tortor.</div>
+                                                    <div class="text-muted small mt-1">15m ago</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-2">
+                                                    <img src="{% static 'assets/img/Theme/avatars/avatar-2.jpg' %}"
+                                                        class="avatar img-fluid rounded-circle" alt="Carl Jenkins">
+                                                </div>
+                                                <div class="col-10 pl-2">
+                                                    <div class="text-dark">Carl Jenkins</div>
+                                                    <div class="text-muted small mt-1">Curabitur ligula sapien euismod
+                                                        vitae.</div>
+                                                    <div class="text-muted small mt-1">2h ago</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-2">
+                                                    <img src="{% static 'assets/img/Theme/avatars/avatar-4.jpg' %}" ava
+                                                        class="avatar img-fluid rounded-circle" alt="Stacie Hall">
+                                                </div>
+                                                <div class="col-10 pl-2">
+                                                    <div class="text-dark">Stacie Hall</div>
+                                                    <div class="text-muted small mt-1">Pellentesque auctor neque nec
+                                                        urna.
+                                                    </div>
+                                                    <div class="text-muted small mt-1">4h ago</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-2">
+                                                    <img src="{% static 'assets/img/Theme/avatars/avatar-3.jpg' %}"
+                                                        class="avatar img-fluid rounded-circle" alt="Bertha Martin">
+                                                </div>
+                                                <div class="col-10 pl-2">
+                                                    <div class="text-dark">Bertha Martin</div>
+                                                    <div class="text-muted small mt-1">Aenean tellus metus, bibendum
+                                                        sed,
+                                                        posuere ac, mattis non.</div>
+                                                    <div class="text-muted small mt-1">5h ago</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-menu-footer">
+                                        <a href="#" class="text-muted">Show all messages</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-toggle="dropdown">
+                                    <div class="position-relative">
+                                        <i class="align-middle" data-feather="bell-off"></i>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0"
+                                    aria-labelledby="alertsDropdown">
+                                    <div class="dropdown-menu-header">
+                                        4 New Notifications
+                                    </div>
+                                    <div class="list-group">
+                                        <a href="#" class="list-group-item">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-2">
+                                                    <i class="text-danger" data-feather="alert-circle"></i>
+                                                </div>
+                                                <div class="col-10">
+                                                    <div class="text-dark">Update completed</div>
+                                                    <div class="text-muted small mt-1">Restart server 12 to complete the
+                                                        update.</div>
+                                                    <div class="text-muted small mt-1">2h ago</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-2">
+                                                    <i class="text-warning" data-feather="bell"></i>
+                                                </div>
+                                                <div class="col-10">
+                                                    <div class="text-dark">Lorem ipsum</div>
+                                                    <div class="text-muted small mt-1">Aliquam ex eros, imperdiet
+                                                        vulputate
+                                                        hendrerit et.</div>
+                                                    <div class="text-muted small mt-1">6h ago</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-2">
+                                                    <i class="text-primary" data-feather="home"></i>
+                                                </div>
+                                                <div class="col-10">
+                                                    <div class="text-dark">Login from 192.186.1.1</div>
+                                                    <div class="text-muted small mt-1">8h ago</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-2">
+                                                    <i class="text-success" data-feather="user-plus"></i>
+                                                </div>
+                                                <div class="col-10">
+                                                    <div class="text-dark">New connection</div>
+                                                    <div class="text-muted small mt-1">Anna accepted your request.</div>
+                                                    <div class="text-muted small mt-1">12h ago</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-menu-footer">
+                                        <a href="#" class="text-muted">Show all notifications</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-flag dropdown-toggle" href="#" id="languageDropdown"
+                                    data-toggle="dropdown">
+                                    <img src="{% static 'assets/img/Theme/flags/us.png' %}" alt="English" />
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
+                                    <a class="dropdown-item" href="#">
+                                        <img src="{% static 'assets/img/Theme/flags/us.png' %}" alt="English" width="20"
+                                            class="align-middle mr-1" />
+                                        <span class="align-middle">English</span>
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <img src="{% static 'assets/img/Theme/flags/es.png' %}" alt="Spanish" width="20"
+                                            class="align-middle mr-1" />
+                                        <span class="align-middle">Spanish</span>
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <img src="{% static 'assets/img/Theme/flags/de.png' %}" alt="German" width="20"
+                                            class="align-middle mr-1" />
+                                        <span class="align-middle">German</span>
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <img src="{% static 'assets/img/Theme/flags/nl.png' %}" alt="Dutch" width="20"
+                                            class="align-middle mr-1" />
+                                        <span class="align-middle">Dutch</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#"
+                                    data-toggle="dropdown">
+                                    <i class="align-middle" data-feather="settings"></i>
+                                </a>
+
+                                <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
+                                    data-toggle="dropdown">
+                                    <img src="{% static 'assets/img/Theme/avatars/avatar.jpg' %}"
+                                        class="avatar img-fluid rounded-circle mr-1" alt="Chris Wood" />
+                                        <span class="text-dark">{{data.username}}</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="{% url 'admin_profile' %}"><i
+                                            class="align-middle mr-1" data-feather="user"></i> Profile</a>
+                                    <a class="dropdown-item" href="#"><i class="align-middle mr-1"
+                                            data-feather="pie-chart"></i> Analytics</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="pages-settings.html">Settings & Privacy</a>
+                                    <a class="dropdown-item" href="#">Help</a>
+                                    <a class="dropdown-item" href="{% url 'logout' %}">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <main class="content">
+                    <div class="container-fluid p-0">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <label class="card-title" style="font-size:  40px;">Appointment Details</label>
+                                        <div class="form-row">
+                                            <a><button class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#Modal2">Add
+                                                    Appointment</button></a>
+                                            <div class="modal fade" id="Modal2" tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header bg-primary">
+                                                            <label class="modal-title" id="ModalLabel"
+                                                                style="font-size: 30px;color:white;">Add Patient</label>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="/admin_appoint_DB" method="POST" role="form"
+                                                                class="php-email-form">
+                                                                {% csrf_token %}
+                                                                <div class="form-row">
+
+                                                                    <div class="col-md-4 form-group">
+                                                                        <label>Name</label>
+                                                                        <input type="text" name="name"
+                                                                            class="form-control" id="name"
+                                                                            placeholder="" data-rule="minlen:4"
+                                                                            data-msg="Please enter at least 4 chars">
+                                                                        <div class="validate"></div>
+                                                                    </div>
+
+                                                                    <div class="col-md-4 form-group">
+                                                                        <label>Date</label>
+                                                                        <input type="Date" class="form-control"
+                                                                            name="date" id="email" placeholder=""
+                                                                            data-rule="email"
+                                                                            data-msg="Please enter a valid email">
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4 form-group">
+                                                                        <label>Gender</label>
+                                                                        <select name="gender" id="department"
+                                                                            class="form-control">
+                                                                            <option selected>Select</option>
+                                                                            <option value="Male">Male</option>
+                                                                            <option value="Female">Female</option>
+                                                                        </select>
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+
+                                                                    <div class="col-md-4 form-group">
+                                                                        <label>Doctor</label>
+                                                                        <select name="doctor" id="department"
+                                                                            class="form-control">
+                                                                            <option value="">Select
+                                                                            </option>
+                                                                            {% for i in disp11 %}
+                                                                            <option value="{{i.staff_first_name}}">{{i.staff_first_name}}</option>
+                                                                            {% endfor %}
+                                                                        </select>
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4 form-group">
+                                                                        <label>Phone</label>
+                                                                        <input type="text" class="form-control"
+                                                                            name="phone" id="phone" placeholder=""
+                                                                            required>
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4 form-group">
+                                                                        <label>Email</label>
+                                                                        <input type="email" class="form-control"
+                                                                            name="email" id="phone" placeholder=""
+                                                                            required>
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="col-md-4 form-group">
+                                                                        <label>Appointment Priority</label>
+                                                                        <select name="app_prio" id="department"
+                                                                            class="form-control">
+                                                                            <option value="">Select
+                                                                            </option>
+                                                                            <option value="critical">Critical</option>
+                                                                            <option value="major">Major</option>
+                                                                            <option value="moderate">Moderate</option>
+                                                                            <option value="low">low</option>
+                                                                        </select>
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                    <div class="col-md-8 form-group">
+                                                                        <label>Messages</label>
+                                                                        <textarea class="form-control" name="message"
+                                                                            rows="3" placeholder="Messages"></textarea>
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="col-md-4 form-group">
+                                                                        <label>Live Consulation</label>
+                                                                        <select name="live_cons" id="department"
+                                                                            class="form-control">
+                                                                            <option selected>Select
+                                                                            </option>
+                                                                            <option value="Yes">Yes
+                                                                            </option>
+                                                                            <option value="No">No
+                                                                            </option>
+                                                                        </select>
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-primary">Save</button>
+                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <a style="padding-left: 1%;"><button class="btn btn-primary">Visitor
+                                                    Book</button></a>
+                                            <a style="padding-left: 1%;"><button class="btn btn-primary">Phone Call
+                                                    Log</button></a>
+                                            <a style="padding-left: 1%;"><button
+                                                    class="btn btn-primary">Postal</button></a>
+                                            <a style="padding-left: 1%;"><button
+                                                    class="btn btn-primary">Complain</button></a> -->
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <table id="datatables-buttons" class="table table-striped" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Date</th>
+                                                    <th>Gender</th>
+                                                    <th>Doctor</th>
+                                                    <th>Phone</th>
+                                                    <th>Email</th>
+                                                    <th>Appointment Priority</th>
+                                                    <th>Messages</th>
+                                                    <th>Live Consulation</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                {% for i in disp %}
+                                                <tr>
+                                                    <td>
+                                                        {{i.name}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.date}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.gender}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.doctor}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.phone}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.email}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.appoint_prio}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.message}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.live_cons}}
+                                                    </td>
+                                                    <td>
+                                                        <a class="icofont-ui-edit" href="admin_app_edit/{{i.id}}"></a>
+                                                        <a class="icofont-ui-delete" href="admin_app_delete/{{i.id}}"></a>
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                                {% for i in disp12 %}
+                                                <tr>
+                                                    <td>
+                                                        {{i.name}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.date}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.gender}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.doctor}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.phone}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.email}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.appoint_prio}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.message}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.live_cons}}
+                                                    </td>
+                                                    <td>
+                                                        <a class="icofont-ui-edit" href="user_appoint_edit/{{i.id}}"></a>
+                                                        <a class="icofont-ui-delete" href="user_appoint_delete/{{i.id}}"></a>
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                                {% for i in disp10 %}
+                                                <tr>
+                                                    <td>
+                                                        {{i.name}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.date}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.gender}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.doctor}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.phone}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.email}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.appoint_prio}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.message}}
+                                                    </td>
+                                                    <td>
+                                                        {{i.live_cons}}
+                                                    </td>
+                                                    <td>
+                                                        <a class="icofont-ui-edit" href="landing_form_edit/{{i.id}}"></a>
+                                                        <a class="icofont-ui-delete" href="landing_form_delete/{{i.id}}"></a>
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'assets/js/app.js' %}"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Bar chart
+            new Chart(document.getElementById("chartjs-dashboard-bar-devices"), {
+                type: "bar",
+                data: {
+                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                    datasets: [{
+                        label: "Mobile",
+                        backgroundColor: window.theme.primary,
+                        borderColor: window.theme.primary,
+                        hoverBackgroundColor: window.theme.primary,
+                        hoverBorderColor: window.theme.primary,
+                        data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
+                        barPercentage: .5,
+                        categoryPercentage: .5
+                    }, {
+                        label: "Desktop",
+                        backgroundColor: window.theme["primary-light"],
+                        borderColor: window.theme["primary-light"],
+                        hoverBackgroundColor: window.theme["primary-light"],
+                        hoverBorderColor: window.theme["primary-light"],
+                        data: [69, 66, 24, 48, 52, 51, 44, 53, 62, 79, 51, 68],
+                        barPercentage: .5,
+                        categoryPercentage: .5
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    cornerRadius: 15,
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        yAxes: [{
+                            gridLines: {
+                                display: false
+                            },
+                            stacked: false,
+                            ticks: {
+                                stepSize: 20
+                            },
+                            stacked: true,
+                        }],
+                        xAxes: [{
+                            stacked: false,
+                            gridLines: {
+                                color: "transparent"
+                            },
+                            stacked: true,
+                        }]
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var markers = [{
+                coords: [31.230391, 121.473701],
+                name: "Shanghai"
+            },
+            {
+                coords: [39.904202, 116.407394],
+                name: "Beijing"
+            },
+            {
+                coords: [28.704060, 77.102493],
+                name: "Delhi"
+            },
+            {
+                coords: [6.524379, 3.379206],
+                name: "Lagos"
+            },
+            {
+                coords: [39.343357, 117.361649],
+                name: "Tianjin"
+            },
+            {
+                coords: [24.860735, 67.001137],
+                name: "Karachi"
+            },
+            {
+                coords: [41.008240, 28.978359],
+                name: "Istanbul"
+            },
+            {
+                coords: [35.689487, 139.691711],
+                name: "Tokyo"
+            },
+            {
+                coords: [23.129110, 113.264381],
+                name: "Guangzhou"
+            },
+            {
+                coords: [19.075983, 72.877655],
+                name: "Mumbai"
+            },
+            {
+                coords: [40.7127837, -74.0059413],
+                name: "New York"
+            },
+            {
+                coords: [34.052235, -118.243683],
+                name: "Los Angeles"
+            },
+            {
+                coords: [41.878113, -87.629799],
+                name: "Chicago"
+            },
+            {
+                coords: [29.760427, -95.369804],
+                name: "Houston"
+            },
+            {
+                coords: [33.448376, -112.074036],
+                name: "Phoenix"
+            },
+            {
+                coords: [51.507351, -0.127758],
+                name: "London"
+            },
+            {
+                coords: [48.856613, 2.352222],
+                name: "Paris"
+            },
+            {
+                coords: [55.755825, 37.617298],
+                name: "Moscow"
+            },
+            {
+                coords: [40.416775, -3.703790],
+                name: "Madrid"
+            }
+            ];
+            var map = new JsVectorMap({
+                map: "world",
+                selector: "#world_map",
+                zoomButtons: true,
+                markers: markers,
+                markerStyle: {
+                    initial: {
+                        r: 9,
+                        stroke: window.theme.white,
+                        strokeWidth: 7,
+                        stokeOpacity: .4,
+                        fill: window.theme.primary
+                    },
+                    hover: {
+                        fill: window.theme.primary,
+                        stroke: window.theme.primary
+                    }
+                },
+                regionStyle: {
+                    initial: {
+                        fill: window.theme["gray-200"]
+                    }
+                },
+                zoomOnScroll: false
+            });
+            window.addEventListener("resize", () => {
+                map.updateSize();
+            });
+            setTimeout(function () {
+                map.updateSize();
+            }, 250);
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Pie chart
+            new Chart(document.getElementById("chartjs-dashboard-pie"), {
+                type: "pie",
+                data: {
+                    labels: ["Direct", "Affiliate", "E-mail", "Other"],
+                    datasets: [{
+                        data: [2602, 1253, 541, 1465],
+                        backgroundColor: [
+                            window.theme.primary,
+                            window.theme.warning,
+                            window.theme.danger,
+                            "#E8EAED"
+                        ],
+                        borderWidth: 5,
+                        borderColor: window.theme.white
+                    }]
+                },
+                options: {
+                    responsive: !window.MSInputMethodContext,
+                    maintainAspectRatio: false,
+                    cutoutPercentage: 70,
+                    legend: {
+                        display: false
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Radar chart
+            new Chart(document.getElementById("chartjs-dashboard-radar"), {
+                type: "radar",
+                data: {
+                    labels: ["Technology", "Sports", "Media", "Gaming", "Arts"],
+                    datasets: [{
+                        label: "Interests",
+                        backgroundColor: "rgba(0, 123, 255, 0.2)",
+                        borderColor: "#2979ff",
+                        pointBackgroundColor: "#2979ff",
+                        pointBorderColor: "#fff",
+                        pointHoverBackgroundColor: "#fff",
+                        pointHoverBorderColor: "#2979ff",
+                        data: [70, 53, 82, 60, 33]
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            $("#datatables-dashboard-traffic").DataTable({
+                pageLength: 8,
+                lengthChange: false,
+                bFilter: false,
+                autoWidth: false,
+                order: [
+                    [1, "desc"]
+                ]
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Datatables with Buttons
+            var datatablesButtons = $("#datatables-buttons").DataTable({
+                responsive: true,
+                lengthChange: !1,
+                buttons: ["copy", "print"]
+            });
+            datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)");
+        });
+    </script>
+
+
+</body>
+
+</html>
